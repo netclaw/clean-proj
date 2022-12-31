@@ -1,0 +1,14 @@
+<div class="container">
+    <div class="itemfilter">
+
+    </div>
+    <div class="itemgrid">
+        <div class="gridproduct">
+            <app-product-item *ngFor="let p of products$ |async" [product]="p" class="itemsubgrid"></app-product-item>
+        </div>
+        
+    </div>
+
+
+
+</div>

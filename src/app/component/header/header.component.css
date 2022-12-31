@@ -1,0 +1,23 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    color: #fff;
+    padding: 0.5rem 1rem;
+  }
+  .item {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 1rem;
+    margin-right: 2rem;
+  }
+  .itemsLeft{
+    display: flex;
+    justify-content: flex-start;
+
+  }
+  .itemsRight{
+    display: flex;
+    justify-content: flex-end;
+  }
