@@ -3,7 +3,7 @@
 
     </div>
     <div class="subgrid">
-            <app-product-item *ngFor="let p of products$ |async" [product]="p" class="itemsubgrid"></app-product-item>
+            <app-product-item *ngFor="let p of products$ |async" [product]="p" class="itemsubgrid" (clickedProduct)="modProduct($event)"></app-product-item>
             
     </div>
 

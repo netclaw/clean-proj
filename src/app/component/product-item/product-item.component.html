@@ -1,24 +1,17 @@
+<div class="grow">
 <div class="productcard">
-    <a routerLink="productdetail/{{product.id}}">
+
     <h4 class="text">{{product.title}}</h4>
+    <a routerLink="productdetail/{{product.id}}">
     <div class="imgContainer">
         <img src="{{product.thumbnail}}">
     </div>
-    <p class="text">Price: {{product.price}}</p>
     </a>
+
+    <p class="text">Price: {{product.price}}</p>
     <span [ngStyle]="{color:getColor()}">{{product.availability?'En stock':'En rupture de stock'}}</span>
     <br>
     <button *ngIf="product.availability==true" (click)="clicked(product)" >{{mess}}</button>
     
-    
-    <!-- <a routerLink="productdetail/{{product.id}}">
-    <h2>{{ product.title}}</h2>  
-    <img src="{{product.thumbnail}}"/>
-    <p>Prix: {{ product.price }}DH</p>
-    
-    <br/>
-    <span [ngStyle]="{color:getColor()}">{{product.availability?'En stock':'En rupture de stock'}}</span>
-    </a>
-    <br> -->
-    <!-- <button *ngIf="product.availability==true" (click)="clicked(product)" >{{mess}}</button> -->
+</div>
 </div>
