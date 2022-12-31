@@ -2,12 +2,11 @@
     <div class="itemfilter">
 
     </div>
-    <div class="itemgrid">
-        <div class="gridproduct">
+    <div class="subgrid">
             <app-product-item *ngFor="let p of products$ |async" [product]="p" class="itemsubgrid"></app-product-item>
-        </div>
-        
+            
     </div>
+
 
 
 

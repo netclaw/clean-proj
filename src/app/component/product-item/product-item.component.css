@@ -1,0 +1,28 @@
+img{
+    max-width: 100%;  
+    height: auto;  
+}
+.imgContainer{
+    width: 70%;
+    height: 60%;
+    margin-inline: 30px;
+    border: 1px solid;
+}
+.text{
+    text-align: center;
+    
+}
+.productcard{
+    /* background-color:#aac0a7; */
+    box-sizing: border-box;
+    box-shadow: lightgray 2px 2px 16px;
+
+}
+button {
+    margin:0 auto;
+    display:block;
+}
+span{
+    
+    
+}

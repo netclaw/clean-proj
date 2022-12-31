@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Product } from 'src/app/model/Product';
 
 @Component({
@@ -10,6 +10,8 @@ export class ProductItemComponent implements OnInit {
 
   
  @Input() product!:Product;
+ @Output() clickedProduct=new EventEmitter<Product>();
+  mess:string='Ajouter au panier';
 
 
   constructor() { }
@@ -17,4 +19,21 @@ export class ProductItemComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  getColor():string{
+    return this.product.availability ? 'green' : 'red';
+  }
+
+  clicked(p:Product){
+    // if(this.mess=='Ajouter au panier'){
+    //   this.clickedProduct.emit(p);
+    //   this.mess='Retirer du panier';
+    // }
+    // else{
+    //   this.mess='Ajouter au panier';
+    //   this.panierService.panier=this.panierService.panier.filter(x=>x.product.id!=p.id);
+      
+
+    // }
+
+  }
 }

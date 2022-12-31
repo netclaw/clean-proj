@@ -6,7 +6,7 @@ import { Product } from '../model/Product';
   providedIn: 'root'
 })
 export class ProductService {
-  products:Product[]=[new Product(1,"iphone","iphone de balur",6000,0,0,0,"null","null","https://rb.gy/hgf5rq",[""]),new Product(1,"iphone","iphone de balur",6000,0,0,0,"null","null","https://rb.gy/hgf5rq",[""]),new Product(1,"iphone","iphone de balur",6000,0,0,0,"null","null","https://rb.gy/hgf5rq",[""]),new Product(1,"iphone","iphone de balur",6000,0,0,0,"null","null","https://rb.gy/hgf5rq",[""]),new Product(1,"iphone","iphone de balur",6000,0,0,0,"null","null","https://rb.gy/hgf5rq",[""])]
+  products:Product[]=[new Product(1,"iphone","iphone de balur",6000,0,0,0,"null","null","https://rb.gy/hgf5rq",[""],true),new Product(1,"iphone","iphone de balur",6000,0,0,0,"null","null","https://rb.gy/hgf5rq",[""],true),new Product(1,"iphone","iphone de balur",6000,0,0,0,"null","null","https://rb.gy/hgf5rq",[""],true),new Product(1,"iphone","iphone de balur",6000,0,0,0,"null","null","https://rb.gy/hgf5rq",[""],true),new Product(1,"iphone","iphone de balur",6000,0,0,0,"null","null","https://rb.gy/hgf5rq",[""],true),new Product(1,"iphone","iphone de balur",6000,0,0,0,"null","null","https://rb.gy/hgf5rq",[""],true),new Product(1,"iphone","iphone de balur",6000,0,0,0,"null","null","https://rb.gy/hgf5rq",[""],true)]
   products$:Observable<Product[]>=of(this.products);
   constructor() { }
 }
