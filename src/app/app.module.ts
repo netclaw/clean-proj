@@ -14,6 +14,7 @@ import { CartItemComponent } from './component/cart-item/cart-item.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { DoneRegistrationComponent } from './component/done-registration/done-registration.component';
+import { CategoryFilterPipe } from './category-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { DoneRegistrationComponent } from './component/done-registration/done-re
     ProductDetailComponent,
     CartItemComponent,
     DoneRegistrationComponent
+    CategoryFilterPipe
   ],
   imports: [
     BrowserModule,

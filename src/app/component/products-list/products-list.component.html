@@ -1,19 +1,20 @@
 <div class="container">
     <div class="itemfilter">
         <h4>Categories</h4>
-        <div class="buttons">
-            <button onclick="Smartphones()">smartphones</button>
-            <button onclick="laptops()">laptops</button>
-            <button onclick="fragrances()">fragrances</button>
-            <button onclick="skincare()">skincare</button>
-            <button onclick="groceries()">groceries</button>
-            <button onclick="decoration()">home-decoration</button>
+    
+          <div class="buttons">
+            <button [ngClass]="{'colorhov':color=='1'}" (mouseover)="color='1'" (mouseout)="color='white'" [ngStyle]="{'background-color': (buttonInd=='smartphones') ? 'green' : 'white'}"  (click)="toggleButton2('smartphones')">smartphones</button>
+            <button [ngClass]="{'colorhov':color=='2'}" (mouseover)="color='2'" (mouseout)="color='white'" [ngStyle]="{'background-color': (buttonInd=='laptops') ? 'green' : 'white'}"  (click)="toggleButton2('laptops')">laptops</button>
+            <button [ngClass]="{'colorhov':color=='3'}" (mouseover)="color='3'" (mouseout)="color='white'"[ngStyle]="{'background-color': (buttonInd=='fragrances') ? 'green' : 'white'}"  (click)="toggleButton2('fragrances')">fragrances</button>
+            <button [ngClass]="{'colorhov':color=='4'}" (mouseover)="color='4'" (mouseout)="color='white'" [ngStyle]="{'background-color': (buttonInd=='skincare') ? 'green' : 'white'}"  (click)="toggleButton2('skincare')">skincare</button>
+            <button [ngClass]="{'colorhov':color=='5'}" (mouseover)="color='5'" (mouseout)="color='white'" [ngStyle]="{'background-color': (buttonInd=='groceries') ? 'green' : 'white'}"  (click)="toggleButton2('groceries')">groceries</button>
+            <button [ngClass]="{'colorhov':color=='6'}" (mouseover)="color='6'" (mouseout)="color='white'" [ngStyle]="{'background-color': (buttonInd=='home-decoration') ? 'green' : 'white'}"  (click)="toggleButton2('home-decoration')">home-decoration</button>
           </div>
           
             
     </div>
     <div class="subgrid">
-            <app-product-item *ngFor="let p of products$ |async" [product]="p" class="itemsubgrid" (clickedProduct)="modProduct($event)"></app-product-item>
+            <app-product-item *ngFor="let p of products$ |async|categoryFilter:buttonInd " [product]="p" class="itemsubgrid" (clickedProduct)="modProduct($event)"></app-product-item>
             
     </div>
 
