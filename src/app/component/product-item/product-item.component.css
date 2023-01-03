@@ -1,6 +1,7 @@
 img{
-    max-width: 100%;  
-    height: auto;  
+    height: 100%;  
+    width: 100%;
+
 }
 .imgContainer{
     width: 70%;
@@ -8,6 +9,7 @@ img{
     margin-inline: 30px;
     border: 1px solid;
     opacity: 1;
+    overflow:hidden;
 }
 .text{
     text-align: center;
@@ -17,6 +19,14 @@ img{
     /* background-color:#aac0a7; */
     box-sizing: border-box;
     box-shadow: lightgray 2px 2px 16px;
+
+    width:350px;
+    max-width:350px;
+    min-width: 350px;
+    height:350px;
+    max-height: 350px;
+    min-height: 350px;
+  
 
 }
 button {

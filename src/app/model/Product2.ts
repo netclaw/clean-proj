@@ -1,4 +1,4 @@
-export class Product{
+export class Product2{
     id: number
     title: string
     description: string
@@ -10,7 +10,6 @@ export class Product{
     category: string;
     thumbnail: string;
     images: Array<string>;
-    availability:boolean=true;
 
     constructor(id: number,
         title: string,
@@ -22,7 +21,7 @@ export class Product{
         brand: string,
         category: string,
         thumbnail: string,
-        images: Array<string>,availability:boolean){
+        images: Array<string>){
             this.id=id;
             this.title=title;
             this.description=description;
@@ -34,7 +33,6 @@ export class Product{
             this.category=category;
             this.thumbnail=thumbnail;
             this.images=images;
-            this.availability=availability;
 
     }
 }

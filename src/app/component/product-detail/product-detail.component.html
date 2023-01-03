@@ -2,13 +2,23 @@
     <div class="productcard">
     
         <h4 class="text">{{product.title}}</h4>
-        <a routerLink="productdetail/{{product.id}}">
+        <div class="dcon">
         <div class="imgContainer">
             <img src="{{product.thumbnail}}">
         </div>
-        </a>
+        <div class="data">
+            <p><span class="titlesec">Description:</span>{{product.description}}</p>
+            <p><span class="titlesec">Brand:</span>{{product.brand}}</p>
+            <div class="images">
+                <img class="imagebro" src="{{product.images[1]}}">
+                <img class="imagebro" src="{{product.images[2]}}">
+                <img class="imagebro" src="{{product.images[3]}}">
+                
+            </div>
+        </div>
+        </div>
     
-        <p class="text">Price: {{product.price}}</p>
+        <p class="text">Price: {{product.price|currency:'EUR'}}</p>
         <span [ngStyle]="{color:getColor()}">{{product.availability?'En stock':'En rupture de stock'}}</span>
         <br>
         <button *ngIf="product.availability==true" (click)="clicked(product)" >{{mess}}</button>

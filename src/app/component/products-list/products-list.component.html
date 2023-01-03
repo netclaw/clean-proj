@@ -1,6 +1,16 @@
 <div class="container">
     <div class="itemfilter">
-
+        <h4>Categories</h4>
+        <div class="buttons">
+            <button onclick="Smartphones()">smartphones</button>
+            <button onclick="laptops()">laptops</button>
+            <button onclick="fragrances()">fragrances</button>
+            <button onclick="skincare()">skincare</button>
+            <button onclick="groceries()">groceries</button>
+            <button onclick="decoration()">home-decoration</button>
+          </div>
+          
+            
     </div>
     <div class="subgrid">
             <app-product-item *ngFor="let p of products$ |async" [product]="p" class="itemsubgrid" (clickedProduct)="modProduct($event)"></app-product-item>

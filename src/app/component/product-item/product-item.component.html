@@ -8,7 +8,7 @@
     </div>
     </a>
 
-    <p class="text">Price: {{product.price}}</p>
+    <p class="text">Price: {{product.price | currency:'EUR'}}</p>
     <span [ngStyle]="{color:getColor()}">{{product.availability?'En stock':'En rupture de stock'}}</span>
     <br>
     <button *ngIf="product.availability==true" (click)="clicked(product)" >{{mess}}</button>
