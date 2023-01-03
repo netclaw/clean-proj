@@ -14,6 +14,7 @@ export class ProductsListComponent implements OnInit {
   products$!:Observable<Product[]>;
 
   buttonInd:string='';
+  color:string = 'white';
 
   constructor(private productService:ProductService,private cartService:CartService) { }
 
@@ -41,5 +42,6 @@ export class ProductsListComponent implements OnInit {
     }
 
   }
+  
 
 }
