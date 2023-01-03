@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { Observable, of } from 'rxjs';
 import { CartItem } from 'src/app/model/CartItem';
 import { CartService } from 'src/app/service/cart.service';
@@ -10,24 +11,18 @@ import { CartService } from 'src/app/service/cart.service';
 })
 export class CartComponent implements OnInit {
   panier!:Observable<CartItem[]>;
+  cartItemPreview$!:Observable<CartItem>;
+  // priceform$!:Observable<number>;
+  // total!:number;
 
   constructor(private cartService:CartService) { }
 
   ngOnInit(): void {
+    // total=
     this.panier=of(this.cartService.panier);
+    // this.priceform$=of(this.cartItem.product.price);
   }
 
-  onCLickreduce(pi:CartItem){
-    // this.panier.forEach(x=>{if(x==pi){pi.amount=pi.amount-1;x=pi}});
-    // this.panier$=of(this.panier);
-
-
-  }
-
-  onclickadd(pi:CartItem){
-    // this.panier.forEach(x=>{if(x==pi){pi.amount=pi.amount+1;x=pi}});
-    // this.panier$=of(this.panier);
-
-  }
+  
 
 }

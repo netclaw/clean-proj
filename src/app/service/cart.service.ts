@@ -16,5 +16,10 @@ export class CartService {
     this.panier=this.panier.filter(x=>x.product.id!=item.product.id);
   }
 
+  updateItem(item:CartItem){
+    this.panier.map(x=>x.product.id==item.product.id?item:x);
+
+  }
+
   
 }
