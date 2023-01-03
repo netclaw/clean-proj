@@ -5,13 +5,15 @@ import { LoginComponent } from './component/login/login.component';
 import { ProductDetailComponent } from './component/product-detail/product-detail.component';
 import { ProductsListComponent } from './component/products-list/products-list.component';
 import { RegisterComponent } from './component/register/register.component';
+import {DoneRegistrationComponent} from "./component/done-registration/done-registration.component";
 
 const routes: Routes = [
   {path:"",component:ProductsListComponent},
   {path:"cart",component:CartComponent},
   {path:"login",component:LoginComponent},
   {path:"register",component:RegisterComponent},
-  {path:"productdetail/:id",component:ProductDetailComponent}
+  {path:"productdetail/:id",component:ProductDetailComponent},
+  {path:"doneRegister",component:DoneRegistrationComponent}
 ];
 
 @NgModule({
