@@ -13,14 +13,15 @@ export class CartComponent implements OnInit {
   panier!:Observable<CartItem[]>;
   cartItemPreview$!:Observable<CartItem>;
   // priceform$!:Observable<number>;
-  // total!:number;
+  total!:number;
 
   constructor(private cartService:CartService) { }
 
   ngOnInit(): void {
-    // total=
     this.panier=of(this.cartService.panier);
     // this.priceform$=of(this.cartItem.product.price);
+    this.total=0;
+    this.total=this.cartService.getTotal();
   }
 
   modAmount(cartItem:CartItem){
@@ -29,6 +30,7 @@ export class CartComponent implements OnInit {
 
     }
     this.cartService.updateItem(cartItem);
+    this.total=this.cartService.getTotal();
 
   }
 

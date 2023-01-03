@@ -6,6 +6,7 @@ import { CartItem } from '../model/CartItem';
 })
 export class CartService {
   panier:CartItem[]=new Array<CartItem>();
+  total!:number;
 
   constructor() { }
 
@@ -19,6 +20,10 @@ export class CartService {
   updateItem(item:CartItem){
     this.panier.map(x=>x.product.id==item.product.id?item:x);
 
+  }
+
+  getTotal():number{
+    return this.total=this.panier.reduce((a, b)=> a + b.amount*b.product.price,0);
   }
 
   
