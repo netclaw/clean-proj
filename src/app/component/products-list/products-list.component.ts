@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { filter, Observable } from 'rxjs';
 import { CartItem } from 'src/app/model/CartItem';
 import { Product } from 'src/app/model/Product';
 import { ProductService } from 'src/app/repository/product.service';
@@ -12,6 +12,8 @@ import { CartService } from 'src/app/service/cart.service';
 })
 export class ProductsListComponent implements OnInit {
   products$!:Observable<Product[]>;
+
+  buttonInd:string='';
 
   constructor(private productService:ProductService,private cartService:CartService) { }
 
@@ -26,6 +28,16 @@ export class ProductsListComponent implements OnInit {
     }else{//-1
       this.cartService.removeItem(cartItem);
   
+    }
+
+  }
+
+  toggleButton2(categoryBut:string){
+    if(this.buttonInd!=categoryBut){
+      this.buttonInd=categoryBut;
+    
+    }else{
+      this.buttonInd='';
     }
 
   }
