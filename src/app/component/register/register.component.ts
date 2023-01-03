@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import {Form, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {NewClientService} from "../../service/new-client.service";
 
 @Component({
   selector: 'app-register',
@@ -9,25 +10,39 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 export class RegisterComponent implements OnInit {
   signUpForm!: FormGroup;
 userId!: FormControl;
-email!: FormControl;
-name!: FormControl;
-tel!: FormControl;
-addresseFacturation!: FormControl;
+userEmail!: FormControl;
+userName!: FormControl;
+userTel!: FormControl;
+userAddress!: FormControl;
 
-  constructor(private formBuilder:FormBuilder) { }
+userP !: FormControl;
+
+  constructor(private formBuilder:FormBuilder, private newClientService : NewClientService) { }
+
+/* form = new FormGroup({
+    userId: new FormControl('', [Validators.required]),
+    userName: new FormControl('', [Validators.required]),
+    userEmail: new FormControl('', [Validators.required, Validators.email]),
+    userTel:  new FormControl('', [Validators.required]),
+    userAddress: new FormControl('',  [Validators.required])
+
+  });*/
+
 
   ngOnInit(): void {
     this.signUpForm = this.formBuilder.group({
       userId: [null, [Validators.required, Validators.minLength(6)]],
-      email: [null, [Validators.required, Validators.email]],
-      name: [null, [Validators.required]],
-      tel: [null, [Validators.required, Validators.pattern(/^\d{10}$/)]],
-      addresseFacturation: [null, [Validators.required]]
+      userEmail: [null, [Validators.required, Validators.email]],
+      userName: [null, [Validators.required]],
+      userTel: [null, [Validators.required, Validators.pattern(/^\d{10}$/)]],
+      userAddress: [null, [Validators.required]],
+      userP: [null, [Validators.required]]
     });
   }
 
-  onSubmit(){
-    
+  onSubmit() {
+    //console.log(this.signUpForm.value.get('userId').value);
+    this.newClientService.addNewClient(this.signUpForm.value)
+  }
   }
 
-}
