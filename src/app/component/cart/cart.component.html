@@ -5,7 +5,7 @@
         <div class="col-10">
 
           
-          <app-cart-item *ngFor="let ci of panier|async" [cartItem]="ci"></app-cart-item>
+          <app-cart-item *ngFor="let ci of panier|async" [cartItem]="ci" (changeProductAmount)="modAmount($event)"></app-cart-item>
 
           
 

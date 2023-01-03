@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { map, Observable, of } from 'rxjs';
 import { CartItem } from 'src/app/model/CartItem';
@@ -11,25 +11,27 @@ import { CartItem } from 'src/app/model/CartItem';
 export class CartItemComponent implements OnInit {
   @Input() cartItem!:CartItem;
   itemform!:FormGroup;
-  priceform$!:Observable<number>;
+  amount!:number;
+  @Output() changeProductAmount=new EventEmitter<CartItem>();
 
-  constructor(private formBuilder: FormBuilder) { 
+  constructor(private formBuilder: FormBuilder,private host: ElementRef<HTMLElement>) { 
     
   }
 
   ngOnInit(): void {
-    this.priceform$=of(this.cartItem.product.price);
-    this.itemform=this.formBuilder.group({
-      amount:[1],
-      price:[this.cartItem.product.price]
-    },
-    {
-      updateOn:'blur'
-    });
-    this.priceform$=this.itemform.valueChanges.pipe(map(x=>x.amount*this.cartItem.product.price));
+    this.amount=this.cartItem.amount;
+    
   }
 
   onAmountChange(){
+    console.log(this.amount);
+    this.cartItem.amount=this.amount;
+    this.changeProductAmount.emit(this.cartItem);
+    if(this.amount==0){
+      this.host.nativeElement.remove();
+
+    }
+    
 
 
   }

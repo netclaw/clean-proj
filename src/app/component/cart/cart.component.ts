@@ -23,6 +23,15 @@ export class CartComponent implements OnInit {
     // this.priceform$=of(this.cartItem.product.price);
   }
 
+  modAmount(cartItem:CartItem){
+    if(cartItem.amount==0){
+      this.cartService.removeItem(cartItem);
+
+    }
+    this.cartService.updateItem(cartItem);
+
+  }
+
   
 
 }
