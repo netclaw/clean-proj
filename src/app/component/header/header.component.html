@@ -4,6 +4,8 @@
         <a class="item" routerLink="cart">Cart</a>
     </div>
     <div class="itemsRight">
+        <h2>{{currentClient|async}}</h2>
+        <!-- <a *ngIf="" class="item" routerLink="login">Logout</a> -->
         <a class="item" routerLink="login">Login</a>
         <a class="item" routerLink="register">Register</a>
     </div>

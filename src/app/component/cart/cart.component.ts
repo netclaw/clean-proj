@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Observable, of } from 'rxjs';
 import { CartItem } from 'src/app/model/CartItem';
+import { Client } from 'src/app/model/Client';
 import { CartService } from 'src/app/service/cart.service';
+import { NewClientService } from 'src/app/service/new-client.service';
 
 @Component({
   selector: 'app-cart',
@@ -14,14 +16,16 @@ export class CartComponent implements OnInit {
   cartItemPreview$!:Observable<CartItem>;
   // priceform$!:Observable<number>;
   total!:number;
+  currentClient!:Client;
 
-  constructor(private cartService:CartService) { }
+  constructor(private cartService:CartService,private newClientService:NewClientService) { }
 
   ngOnInit(): void {
     this.panier=of(this.cartService.panier);
     // this.priceform$=of(this.cartItem.product.price);
     this.total=0;
     this.total=this.cartService.getTotal();
+    this.currentClient=this.newClientService.loggedCient;
   }
 
   modAmount(cartItem:CartItem){

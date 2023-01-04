@@ -27,7 +27,7 @@ import { CategoryFilterPipe } from './category-filter.pipe';
     CartComponent,
     ProductDetailComponent,
     CartItemComponent,
-    DoneRegistrationComponent
+    DoneRegistrationComponent,
     CategoryFilterPipe
   ],
   imports: [

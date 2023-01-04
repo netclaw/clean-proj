@@ -18,6 +18,7 @@ export class ProductDetailComponent implements OnInit {
     const productId=+this.router.snapshot.params['id'];
     // this.productService.getProductById2(productId).subscribe(x=>this.p=x)
     this.product=this.productService.getProductById(productId);
+    console.log(this.product);
   }
 
   getColor():string{

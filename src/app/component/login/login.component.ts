@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Form, FormBuilder} from '@angular/forms';
+import { Router } from '@angular/router';
 import {NewClientService} from "../../service/new-client.service";
 
 
@@ -15,7 +16,7 @@ export class LoginComponent implements OnInit {
   userId!:FormControl;
   userP!:FormControl;
 
-  constructor(private formBuilder : FormBuilder,private clientService : NewClientService) { }
+  constructor(private formBuilder : FormBuilder,private clientService : NewClientService,private router:Router) { }
 
   ngOnInit(): void {
     this.signInForm = this.formBuilder.group({
@@ -25,7 +26,8 @@ export class LoginComponent implements OnInit {
   }
   onSubmit(){
     this.clientService.loginClient(this.signInForm.value);
-    console.log(this.clientService.loggedCient)
+    this.router.navigateByUrl("");
+    
 
 
   }

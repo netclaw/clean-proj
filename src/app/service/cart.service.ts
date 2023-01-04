@@ -7,6 +7,7 @@ import { CartItem } from '../model/CartItem';
 export class CartService {
   panier:CartItem[]=new Array<CartItem>();
   total!:number;
+  
 
   constructor() { }
 

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
+import { of } from 'rxjs';
 import {Client} from "../model/Client";
-import {FormGroup} from "@angular/forms";
+import { CartService } from './cart.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,10 @@ export class NewClientService {
   allclients : Client[] = new Array<Client>();
   loggedCient !: Client;
 
-  constructor() { }
+  constructor(private cartService:CartService) {
+    // of(this.cartService.panier).subscribe(x=>this.loggedCient.panier=x);
+    // this.cartService
+  }
 
   addNewClient(client : {
     userId : String,
@@ -21,7 +25,6 @@ export class NewClientService {
     //const newClient : Client = new Client(client.value.get('userId'),client.get('userEmail')?.value, client.get('userName')?.value, client.get('userTel')?.value, client.get('userAddress')?.value, client.get('userP')?.value);
     const newClient : Client = {...client};
     this.allclients.push(newClient);
-    console.log(this.allclients);
   }
   loginClient(client : {userId : String,userP:String}){
     for(let i=0; i<this.allclients.length; i++){

@@ -19,14 +19,7 @@ userP !: FormControl;
 
   constructor(private formBuilder:FormBuilder, private newClientService : NewClientService) { }
 
-/* form = new FormGroup({
-    userId: new FormControl('', [Validators.required]),
-    userName: new FormControl('', [Validators.required]),
-    userEmail: new FormControl('', [Validators.required, Validators.email]),
-    userTel:  new FormControl('', [Validators.required]),
-    userAddress: new FormControl('',  [Validators.required])
 
-  });*/
 
 
   ngOnInit(): void {
