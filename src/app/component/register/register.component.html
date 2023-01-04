@@ -40,41 +40,99 @@
 
                     <h2 class="fw-bold mb-2 text-uppercase">Inscription</h2>
                     <p class="text-white-50 mb-5">Please enter the following Information !</p>
+
                   <form [formGroup]="signUpForm">
+
                     <div class="form-outline form-white mb-4">
+
                       <input type="text" id="userId" formControlName="userId"class="form-control form-control-lg">
                       <label class="form-label" for="userId">User ID:</label>
-                    </div>
+                      
+                      <div *ngIf="this.signUpForm.get('userId')?.invalid && (this.signUpForm.get('userId')?.touched)"
+    class="alert alert-danger">
+                        <div class="form-label" *ngIf="this.signUpForm.get('userId')?.errors?.['required']">
+                          userId is required.
+                        </div>
+                        <div class="form-label" *ngIf="this.signUpForm.get('userId')?.errors?.['minlength']">
+                          userId mustn't have less than 6 charcaters.
+                        </div>
+                      </div>
 
-                      <div class="form-outline form-white mb-4">
-                        <input type="email" id="userEmail" formControlName="userEmail" class="form-control form-control-lg" />
-                        <label class="form-label" for="userEmail">Email</label>
-                    </div>
-
-                    <div class="form-outline form-white mb-4">
-                      <input type="password" id="userP" formControlName="userP" class="form-control form-control-lg">
-                      <label class="form-label" for="userP">Password</label>
                     </div>
 
                     <div class="form-outline form-white mb-4">
                       <input type="text" id="userName" formControlName="userName" class="form-control form-control-lg">
                       <label class="form-label" for="userName">Full Name</label>
+
+                      <div *ngIf="this.signUpForm.get('userName')?.invalid && (this.signUpForm.get('userName')?.touched)"
+    class="alert alert-danger">
+                        <div class="form-label" *ngIf="this.signUpForm.get('userName')?.errors?.['required']">
+                          userName is required.
+                        </div>
+                      </div>
+                    </div>
+
+                      <div class="form-outline form-white mb-4">
+                        <input type="email" id="userEmail" formControlName="userEmail" class="form-control form-control-lg" />
+                        <label class="form-label" for="userEmail">Email</label>
+
+                        <div *ngIf="this.signUpForm.get('userEmail')?.invalid && (this.signUpForm.get('userEmail')?.touched)"
+    class="alert alert-danger">
+                        <div class="form-label" *ngIf="this.signUpForm.get('userEmail')?.errors?.['required']">
+                          Email is required.
+                        </div>
+                        <div class="form-label" *ngIf="this.signUpForm.get('userEmail')?.errors?.['email']">
+                          Email unvalid
+                        </div>
+                      </div>
                     </div>
 
                     <div class="form-outline form-white mb-4">
                       <input type="text" id="userTel" formControlName="userTel" class="form-control form-control-lg">
                       <label class="form-label" for="userTel">Telephone Number</label>
+
+                      <div *ngIf="this.signUpForm.get('userTel')?.invalid && (this.signUpForm.get('userTel')?.touched)"
+                      class="alert alert-danger">
+                                          <div class="form-label" *ngIf="this.signUpForm.get('userTel')?.errors?.['required']">
+                                            Telephone Number is required.
+                                          </div>
+                                          <div class="form-label" *ngIf="this.signUpForm.get('userTel')?.errors?.['pattern']">
+                                            enter a valid telephone number
+                                          </div>
+                                        </div>
                     </div>
 
                     <div class="form-outline form-white mb-4">
-                      <input type="text" id="userAddress" formControlName="userAddress" class="form-control form-control-lg">
-                      <label class="form-label" for="userAddress">Shipping Adress</label>
+                      <input type="password" id="userP" formControlName="userP" class="form-control form-control-lg">
+                      <label class="form-label" for="userP">Password</label>
+
+                      <div *ngIf="this.signUpForm.get('userP')?.invalid && (this.signUpForm.get('userP')?.touched)"
+                      class="alert alert-danger">
+                                          <div class="form-label" *ngIf="this.signUpForm.get('userP')?.errors?.['required']">
+                                            Password is required.
+                                          </div>
+                                          <div class="form-label" *ngIf="this.signUpForm.get('userP')?.errors?.['minlength']">
+                                            Password mustn't have less than 6 charcaters.
+                                          </div>
+                                        </div>
+                      
                     </div>
 
+                    
+
+                    
+
+                    
+
+                    <!-- <div class="form-outline form-white mb-4">
+                      <input type="text" id="userAddress" formControlName="userAddress" class="form-control form-control-lg">
+                      <label class="form-label" for="userAddress">Shipping Adress</label>
+                    </div> -->
 
 
 
-                    <a class="btn btn-outline-light btn-lg px-5" routerLink="/doneRegister"  type="submit" (click)="onSubmit()">Register</a>
+                    <button class="btn btn-outline-light btn-lg px-5" type="submit" (click)="onSubmit()" [disabled]="signUpForm.invalid">Register</button>
+
                   </form>
 
 
@@ -87,4 +145,12 @@
             </div>
           </div>
          </div>
-      </section>
+
+         <!-- DEBUG -->
+<!-- <pre>{{signUpForm.get('userId')?.valid}}</pre>
+<pre>{{signUpForm.get('userEmail')?.valid}}</pre>
+<pre>{{signUpForm.get('userName')?.valid}}</pre>
+<pre>{{signUpForm.get('userTel')?.valid}}</pre>
+<pre>{{signUpForm.get('userAddress')?.valid}}</pre>
+<pre>{{signUpForm.get('userP')?.valid}}</pre> -->
+    
