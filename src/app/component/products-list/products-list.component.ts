@@ -11,6 +11,17 @@ import { CartService } from 'src/app/service/cart.service';
   styleUrls: ['./products-list.component.css']
 })
 export class ProductsListComponent implements OnInit {
+  searchText = '';
+  characters0=[];
+  characters = [
+    'smartphones',
+    'laptops',
+    'fragrances',
+    'skincare',
+    'groceries',
+    'home-decoration'
+  ];
+
   products$!:Observable<Product[]>;
 
   buttonInd:string='';

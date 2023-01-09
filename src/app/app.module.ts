@@ -15,6 +15,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { DoneRegistrationComponent } from './component/done-registration/done-registration.component';
 import { CategoryFilterPipe } from './category-filter.pipe';
+import { SearchFilterPipe } from './search-filter.pipe';
+import { SearchProductPipe } from './search-product.pipe';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { CategoryFilterPipe } from './category-filter.pipe';
     ProductDetailComponent,
     CartItemComponent,
     DoneRegistrationComponent,
-    CategoryFilterPipe
+    CategoryFilterPipe,
+    SearchFilterPipe,
+    SearchProductPipe
   ],
   imports: [
     BrowserModule,
