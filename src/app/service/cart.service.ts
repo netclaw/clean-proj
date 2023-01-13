@@ -8,6 +8,7 @@ import { Client } from '../model/Client';
 export class CartService {
   panier:CartItem[]=new Array<CartItem>();
   total!:number;
+  isLoaded:boolean=false;
   
   
 
@@ -30,8 +31,10 @@ export class CartService {
   }
 
   public loadClientCart(client:Client){
-    this.panier=client.panier;
-
+    if(this.isLoaded){
+      this.panier=client.panier;
+    }
+    
   }
 
   

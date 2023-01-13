@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Observable, of, Subject, takeUntil } from 'rxjs';
 import { CartItem } from 'src/app/model/CartItem';
 import { Client } from 'src/app/model/Client';
@@ -19,8 +20,9 @@ export class CartComponent implements OnInit {
   saveText:string="Save Cart";
   currentClient!:Client;
   private destroy$!: Subject<boolean>;
+  isLoaded:boolean=false;
 
-  constructor(private cartService:CartService,private newClientService:NewClientService) { }
+  constructor(private cartService:CartService,private newClientService:NewClientService,private router: Router) { }
 
   ngOnInit(): void {
     this.destroy$ = new Subject<boolean>();
@@ -54,7 +56,16 @@ export class CartComponent implements OnInit {
 
   ngOnDestroy(): void {
     this.destroy$.next(true);
-}
+  }
+
+  loadcart(){
+    this.cartService.isLoaded=true;
+    this.cartService.loadClientCart(this.currentClient);
+    this.router.navigateByUrl("");
+    this.cartService.isLoaded=false;
+    
+
+  }
 
   
 

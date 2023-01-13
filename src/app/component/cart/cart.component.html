@@ -20,6 +20,10 @@
             </div>
             </div>
           </div>
+          <ng-container *ngIf="!isLoaded">
+            <button *ngIf="currentClient.userId!=''" class=" btn-warning btn-block" (click)="loadcart()" >load saved cart</button>
+          </ng-container>
+          
           
 
         </div>
