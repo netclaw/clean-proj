@@ -30,7 +30,6 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit() {
-    //console.log(this.signUpForm.value.get('userId').value);
     this.newClientService.addNewClient(this.signUpForm.value)
     this.router.navigateByUrl("login");
     

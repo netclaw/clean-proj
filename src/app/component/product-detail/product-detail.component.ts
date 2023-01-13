@@ -25,16 +25,7 @@ export class ProductDetailComponent implements OnInit {
     return this.product.availability ? 'green' : 'red';
   }
   clicked(p:Product){
-    // if(this.mess=='Ajouter au panier'){
-    //   this.clickedProduct.emit(p);
-    //   this.mess='Retirer du panier';
-    // }
-    // else{
-    //   this.mess='Ajouter au panier';
-    //   this.panierService.panier=this.panierService.panier.filter(x=>x.product.id!=p.id);
-      
-
-    // }
+    
 
   }
 

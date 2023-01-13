@@ -8,12 +8,13 @@ import { CartService } from './cart.service';
 })
 export class NewClientService {
   allclients : Client[] = [new Client("net","a.gmail.com","ysf","0661233452","","alfonso")];
-  loggedCient !: Client;
+  loggedCient : Client=new Client("","","","","","");
   public getLoggedInName = new Subject<Client>();
+  public logged = new Subject<boolean>();
+  islogged:boolean=false;
 
   constructor(private cartService:CartService) {
-    // of(this.cartService.panier).subscribe(x=>this.loggedCient.panier=x);
-    // this.cartService
+   
   }
 
   addNewClient(client : {
@@ -23,7 +24,6 @@ export class NewClientService {
     userTel : String,
     userAddress : String,userP : String}){
     // @ts-ignore
-    //const newClient : Client = new Client(client.value.get('userId'),client.get('userEmail')?.value, client.get('userName')?.value, client.get('userTel')?.value, client.get('userAddress')?.value, client.get('userP')?.value);
     const newClient : Client = {...client};
     this.allclients.push(newClient);
   }
@@ -31,9 +31,28 @@ export class NewClientService {
     for(let i=0; i<this.allclients.length; i++){
       if (this.allclients[i].userId == client.userId){
         this.loggedCient=this.allclients[i];
+        this.logged.next(true);
+        this.islogged=true;
       }
     }
     if (this.loggedCient==null){console.log("error no such client")}
     this.getLoggedInName.next(this.loggedCient);
+    this.cartService.loadClientCart(this.loggedCient);
+  }
+
+  public saveCart(client:Client){
+    this.loggedCient=client;
+    this.allclients=this.allclients.filter(x=>x.userEmail!=client.userEmail);
+    this.allclients.push(this.loggedCient);
+
+  }
+
+  logoutClient(){
+    this.islogged=false;
+    console.log("unloged");
+    this.loggedCient=new Client("","","","","","");
+    this.getLoggedInName.next(this.loggedCient);
+    this.logged.next(false);
+    this.cartService.panier=[];
   }
 }

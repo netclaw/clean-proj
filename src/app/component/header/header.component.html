@@ -4,11 +4,26 @@
         <a class="item" routerLink="cart">Cart</a>
     </div>
     <div class="itemsRight">
-        <p class="item" *ngIf="currentClient$|async as client ; else loading">hello {{client.userId}}</p>
-        <a *ngIf="currentClient$ | async as Client" class="item" routerLink="login">Logout</a>
+        <ng-container *ngIf="currentClient$|async as client; else loading">
+            <p class="item" *ngIf="client.userId!=''">hello {{client.userId}}</p>
+            <a *ngIf="client.userId!=''" class="item" routerLink="" (click)="logOut()">Logout</a>
+
+            <a *ngIf="client.userId==''" class="item" routerLink="login" #loading>Login</a>
+            <a *ngIf="client.userId==''" class="item" routerLink="register" #loading>Register</a>
+        </ng-container>
+        
         <ng-template #loading>
             <a class="item" routerLink="login" #loading>Login</a>
             <a class="item" routerLink="register" #loading>Register</a>
         </ng-template>
+
+        <!-- <ng-container *ngIf="logged">
+            <p class="item" *ngIf="currentClient$|async as client">hello {{client.userId}}</p>
+            <a *ngIf="currentClient$ | async as Client" class="item" routerLink="" (click)="logOut()">Logout</a>
+        </ng-container>
+            <ng-container *ngIf="!logged">
+                <a class="item" routerLink="login" #loading>Login</a>
+                <a class="item" routerLink="register" #loading>Register</a>
+        </ng-container> -->
     </div>
 </nav>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject, takeUntil } from 'rxjs';
 import { Client } from 'src/app/model/Client';
 import { NewClientService } from 'src/app/service/new-client.service';
 
@@ -10,6 +10,9 @@ import { NewClientService } from 'src/app/service/new-client.service';
 })
 export class HeaderComponent implements OnInit {
   currentClient$!:Observable<Client>;
+  // logged$!:Observable<boolean>;
+  logged:boolean=false;
+  private destroy$!: Subject<boolean>;
 
     
 
@@ -18,10 +21,23 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.destroy$ = new Subject<boolean>();
     this.currentClient$=this.newclientService.getLoggedInName;
+    this.newclientService.logged.subscribe(x=>this.logged=x);
+    // this.logged$=this.newclientService.logged;
+    
+
     
     
   }
+
+  logOut(){
+    this.newclientService.logoutClient();
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next(true);
+}
 
 
 }

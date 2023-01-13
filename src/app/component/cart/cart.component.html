@@ -12,13 +12,15 @@
           
           <div class="card">
             <div class="card-body">
-              <!-- <h5 class="mb-0" >{{priceform$ | async}}</h5> -->
               <div class="oblob">
               <button type="button" class="btn btn-warning btn-block btn-lg">Proceed to Pay</button>
+              <!-- <input class=" btn-warning btn-block" type="button" value="Save Cart" (click)="save"> -->
+              <button *ngIf="currentClient.userId!=''" class=" btn-warning btn-block" (click)="save()" >{{saveText}}</button>
               <h3>Total:{{this.total|currency:'EUR'}}</h3>
             </div>
             </div>
           </div>
+          
 
         </div>
       </div>

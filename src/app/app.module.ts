@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductsListComponent } from './component/products-list/products-list.component';
@@ -17,6 +16,7 @@ import { DoneRegistrationComponent } from './component/done-registration/done-re
 import { CategoryFilterPipe } from './category-filter.pipe';
 import { SearchFilterPipe } from './search-filter.pipe';
 import { SearchProductPipe } from './search-product.pipe';
+
 
 @NgModule({
   declarations: [
@@ -39,7 +39,7 @@ import { SearchProductPipe } from './search-product.pipe';
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule    
   ],
   providers: [],
   bootstrap: [AppComponent]

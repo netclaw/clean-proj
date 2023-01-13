@@ -11,7 +11,6 @@ import { RequestProduct } from '../model/RequestProduct';
 })
 export class ProductService {
   products:Product[]=[];
-  // [new Product(1,"ipad","iphone de balur",6000,0,0,0,"null","null","https://n9.cl/w4iwu",[""],true),new Product(2,"iphone","iphone de balur",9000,0,0,0,"null","null","https://rb.gy/hgf5rq",[""],true),new Product(3,"iphone","iphone de balur",6000,0,0,0,"null","null","https://rb.gy/hgf5rq",[""],true),new Product(4,"iphone","iphone de balur",6000,0,0,0,"null","null","https://rb.gy/hgf5rq",[""],true),new Product(5,"iphone","iphone de balur",6000,0,0,0,"null","null","https://rb.gy/hgf5rq",[""],true),new Product(6,"iphone","iphone de balur",6000,0,0,0,"null","null","https://rb.gy/hgf5rq",[""],true),new Product(7,"iphone","iphone de balur",6000,0,0,0,"null","null","https://rb.gy/hgf5rq",[""],true)]
   products$:Observable<Product[]>=this.getAllProducts();
   categoryProducts:Product[]=new Array<Product>();
   
