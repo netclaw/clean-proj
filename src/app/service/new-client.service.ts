@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { of } from 'rxjs';
+import { of, Subject } from 'rxjs';
 import {Client} from "../model/Client";
 import { CartService } from './cart.service';
 
@@ -7,8 +7,9 @@ import { CartService } from './cart.service';
   providedIn: 'root'
 })
 export class NewClientService {
-  allclients : Client[] = new Array<Client>();
+  allclients : Client[] = [new Client("net","a.gmail.com","ysf","0661233452","","alfonso")];
   loggedCient !: Client;
+  public getLoggedInName = new Subject<Client>();
 
   constructor(private cartService:CartService) {
     // of(this.cartService.panier).subscribe(x=>this.loggedCient.panier=x);
@@ -33,5 +34,6 @@ export class NewClientService {
       }
     }
     if (this.loggedCient==null){console.log("error no such client")}
+    this.getLoggedInName.next(this.loggedCient);
   }
 }

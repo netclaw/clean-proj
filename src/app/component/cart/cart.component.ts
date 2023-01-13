@@ -16,16 +16,15 @@ export class CartComponent implements OnInit {
   cartItemPreview$!:Observable<CartItem>;
   // priceform$!:Observable<number>;
   total!:number;
-  currentClient!:Client;
+  // currentClient!:Client;
 
-  constructor(private cartService:CartService,private newClientService:NewClientService) { }
+  constructor(private cartService:CartService) { }
 
   ngOnInit(): void {
     this.panier=of(this.cartService.panier);
     // this.priceform$=of(this.cartItem.product.price);
     this.total=0;
     this.total=this.cartService.getTotal();
-    this.currentClient=this.newClientService.loggedCient;
   }
 
   modAmount(cartItem:CartItem){

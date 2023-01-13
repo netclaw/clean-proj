@@ -42,3 +42,15 @@ h4{
 .colorhov{
     color:rgb(188, 185, 185);
 }
+.content{
+    width: 50%;
+    margin-left: 20%;
+    /* position: absolute; */
+    
+}
+.arol{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    height: 50px;
+}

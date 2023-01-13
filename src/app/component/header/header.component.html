@@ -4,9 +4,11 @@
         <a class="item" routerLink="cart">Cart</a>
     </div>
     <div class="itemsRight">
-        <h2 *ngIf="currentClient$ | async as Client">{{currentClient$|async}}</h2>
-        <!-- <a *ngIf="currentClient$ | async as Client" class="item" routerLink="login">Logout</a> -->
-        <a class="item" routerLink="login">Login</a>
-        <a class="item" routerLink="register">Register</a>
+        <p class="item" *ngIf="currentClient$|async as client ; else loading">{{client.userId}}</p>
+        <a *ngIf="currentClient$ | async as Client" class="item" routerLink="login">Logout</a>
+        <ng-template #loading>
+            <a class="item" routerLink="login" #loading>Login</a>
+            <a class="item" routerLink="register" #loading>Register</a>
+        </ng-template>
     </div>
 </nav>

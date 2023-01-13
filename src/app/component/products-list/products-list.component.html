@@ -1,20 +1,22 @@
-<div class="content" role="main">
-  <div class="card">
-    <div class="form-group">
-      <label for="search-text">Search Product</label>
-      <input type="email" class="form-control" id="search-text" aria-describedby="search-text" 
-        [(ngModel)]="searchText" placeholder="Enter text to search" 
-        autofocus>
+<div class="arol">
+  <div class="content" role="main">
+    <div class="card">
+      <div class="form-group">
+        <label for="search-text">Search Product</label>
+        <input type="email" class="form-control" id="search-text" aria-describedby="search-text" 
+          [(ngModel)]="searchText" placeholder="Enter text to search" 
+          autofocus>
+      </div>
+      <ul class="list-group list-group-flush">
+        <!-- results of ngFor is passed to appFilter with argument searchText -->
+        <ng-container *ngIf="searchText!=''">
+          <a routerLink="productdetail/{{c.id}}" *ngFor="let c of products$| async | searchProduct: searchText"><li  class="list-group-item" >
+            {{c.title}}
+          </li></a>
+        
+      </ng-container>
+      </ul>
     </div>
-    <ul class="list-group list-group-flush">
-      <!-- results of ngFor is passed to appFilter with argument searchText -->
-      <ng-container *ngIf="searchText!=''">
-        <a routerLink="productdetail/{{c.id}}" *ngFor="let c of products$| async | searchProduct: searchText"><li  class="list-group-item" >
-          {{c.title}}
-        </li></a>
-      
-    </ng-container>
-    </ul>
   </div>
 </div>
 
