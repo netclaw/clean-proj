@@ -4,10 +4,10 @@ const express=require('express')
   const HOST=process.env.Host;
   const app=express();
   
-app.use('/',express.static(path.join(__dirname,'dist/clean-proj/angular')));
+app.use('/',express.static(path.join(__dirname,'backend/angular')));
 
   app.get('',(req,res)=>{
-    res.sendFile(path.join(__dirname,'dist/clean-proj/angular','index.html'));
+    res.sendFile(path.join(__dirname,'backend/angular','index.html'));
   })
 
   app.listen(PORT,()=>{
