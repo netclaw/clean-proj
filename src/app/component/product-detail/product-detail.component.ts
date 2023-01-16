@@ -18,6 +18,7 @@ export class ProductDetailComponent implements OnInit {
 
   ngOnInit(): void {
     const productId=+this.router.snapshot.params['id'];
+    // this.productService.getAllProductsS();
     this.product=this.productService.getProductById(productId);
     if(this.cartService.panier.every(x=>x.product.id!=this.product.id)){
       this.mess='Ajouter au panier';
